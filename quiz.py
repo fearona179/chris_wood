@@ -15,21 +15,22 @@ for i in questions:
     for i in myanswers:
       print(myanswers[ansnum])
       ans = input("What is your answer: ")
-      while ans :
+      while True :
         try:
-            ans = int(ans)
-            break
+            ans_int = int(ans)
+            if ans_int >= 1 and ans_int <= 4:
+              break
+            else:
+              print("Please enter an actual number between 1 and 4.")
+              ans = input("What is your answer: ")
         except ValueError:
             print("Please enter an actual number between 1 and 4.")
             ans = input("What is your answer: ")
-      if ans < 1 and ans > 4:
-        print("Please enter an actual number between 1 and 4.")
-        ans = input("What is your answer: ")
-      if ans == canswers[index]:
-        correctans.append(ans)
+      if ans_int == canswers[index]:
+        correctans.append(ans_int)
         break
       else:
-       wrongans.append(ans)
+       wrongans.append(ans_int)
        break
     counter = counter + 1
     index = index  + 1
